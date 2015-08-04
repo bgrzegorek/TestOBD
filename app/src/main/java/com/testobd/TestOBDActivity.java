@@ -459,6 +459,7 @@ public class TestOBDActivity extends ActionBarActivity {
                 csv_result += "\n rest commands: \n";
                 publishProgress(" rest commands... \n");
                 testObdcommand(new SpeedObdCommand());
+                testObdcommand(new AvailablePidsObdCommand());
 
             } else {
                 return Boolean.FALSE;
