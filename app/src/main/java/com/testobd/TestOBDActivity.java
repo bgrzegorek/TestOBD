@@ -343,7 +343,61 @@ public class TestOBDActivity extends ActionBarActivity {
 
                 csv_result += "\n mikolaj commands: \n";
                 publishProgress(" mikolaj commands... \n");
-
+                testObdcommand(new AuxillaryInputStatusObdCommand());
+                testObdcommand(new AvailablePids2ObdCommand());
+                testObdcommand(new Bank1Sensor1ShortBankSensorShortTermFuelObdCommand());
+                testObdcommand(new Bank1Sensor2ShortBankSensorShortTermFuelObdCommand());
+                testObdcommand(new Bank1Sensor3ShortBankSensorShortTermFuelObdCommand());
+                testObdcommand(new Bank1Sensor4ShortBankSensorShortTermFuelObdCommand());
+                testObdcommand(new Bank2Sensor1ShortBankSensorShortTermFuelObdCommand());
+                testObdcommand(new Bank2Sensor2ShortBankSensorShortTermFuelObdCommand());
+                testObdcommand(new Bank2Sensor3ShortTermBankSensorTermFuelObdCommand());
+                testObdcommand(new Bank2Sensor4ShortBankSensorShortTermFuelObdCommand());
+                testObdcommand(new BankSensorShortTermObdCommand());
+                testObdcommand(new CommandedERGObdCommand());
+                testObdcommand(new CommandedEvaporativePurgeObdCommand());
+                testObdcommand(new CommandedSecondaryAirStatusObdCommand());
+                testObdcommand(new EGRErrorObdCommand());
+                testObdcommand(new EvapSystemVaporPressureObdCommand());
+                testObdcommand(new FindFuelSystemObdCommand());
+                testObdcommand(new FreezeDTCObdCommand());
+                testObdcommand(new FuelRailPressure2ObdCommand());
+                testObdcommand(new ObdStandardObdCommand());
+                testObdcommand(new Bank1Sensor1OxygenSensorObdCommand());
+                testObdcommand(new Bank1Sensor2OxygenSensorObdCommand());
+                testObdcommand(new Bank1Sensor3OxygenSensorObdCommand());
+                testObdcommand(new Bank1Sensor4OxygenSensorObdCommand());
+                testObdcommand(new Bank2Sensor1OxygenSensorObdCommand());
+                testObdcommand(new Bank2Sensor2OxygenSensorObdCommand());
+                testObdcommand(new Bank2Sensor3OxygenSensorObdCommand());
+                testObdcommand(new Bank2Sensor4OxygenSensorObdCommand());
+                testObdcommand(new OxygenSensorObdCommand());
+                testObdcommand(new OxygenSensorsPresent2ObdCommand());
+                testObdcommand(new OxygenSensorsPresentObdCommand());
+                testObdcommand(new Bank1LongTermFuelObdCommand());
+                testObdcommand(new Bank1ShortTermFuelObdCommand());
+                testObdcommand(new Bank2LongTermFuelObdCommand());
+                testObdcommand(new Bank2ShortTermFuelObdCommand());
+                testObdcommand(new TermFuelObdCommand());
+                testObdcommand(new WarmUpsObdCommand());
+                testObdcommand(new S1WRLambdaEquivalenceRatioObdCommand());
+                testObdcommand(new S2WRLambdaEquivalenceRatioObdCommand());
+                testObdcommand(new S3WRLambdaEquivalenceRatioObdCommand());
+                testObdcommand(new S4WRLambdaEquivalenceRatioObdCommand());
+                testObdcommand(new S5WRLambdaEquivalenceRatioObdCommand());
+                testObdcommand(new S6WRLambdaEquivalenceRatioObdCommand());
+                testObdcommand(new S7WRLambdaEquivalenceRatioObdCommand());
+                testObdcommand(new S8WRLambdaEquivalenceRatioObdCommand());
+                testObdcommand(new WRLambdaEquivalenceRatioObdCommand());
+                testObdcommand(new S1WRLambdaVoltageObdCommand());
+                testObdcommand(new S2WRLambdaVoltageObdCommand());
+                testObdcommand(new S3WRLambdaVoltageObdCommand());
+                testObdcommand(new S4WRLambdaVoltageObdCommand());
+                testObdcommand(new S5WRLambdaVoltageObdCommand());
+                testObdcommand(new S6WRLambdaVoltageObdCommand());
+                testObdcommand(new S7WRLambdaVoltageObdCommand());
+                testObdcommand(new S8WRLambdaVoltageObdCommand());
+                testObdcommand(new WRLambdaVoltageObdCommand());
 
 
 
