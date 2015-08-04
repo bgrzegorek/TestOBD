@@ -22,7 +22,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.github.pires.obd.commands.fuel;
+package com.github.pires.obd.commands.Matherlover;
 
 import com.github.pires.obd.commands.ObdCommand;
 import com.github.pires.obd.enums.AvailableCommandNames;
