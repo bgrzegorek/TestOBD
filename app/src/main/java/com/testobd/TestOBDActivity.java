@@ -434,7 +434,7 @@ public class TestOBDActivity extends ActionBarActivity {
                 csv_result += ";";
                 try {
                     command.run(socket.getInputStream(), socket.getOutputStream());
-                    csv_result += command.getResult();
+                    csv_result += command.getFormattedResult();
                 } catch (ObdResponseException e) {
                     csv_result += e.getMessage();
                 } catch (Exception e) {
