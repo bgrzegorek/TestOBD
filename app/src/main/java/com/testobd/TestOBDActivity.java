@@ -400,6 +400,24 @@ public class TestOBDActivity extends ActionBarActivity {
                 testObdcommand(new WRLambdaVoltageObdCommand());
 
 
+                /*******************************************************************************/
+                csv_result += "\n pressure commands: \n";
+                publishProgress(" pressure commands... \n");
+                testObdcommand(new BarometricPressureObdCommand());
+                testObdcommand(new FuelPressureObdCommand());
+                testObdcommand(new FuelRailPressureObdCommand());
+                testObdcommand(new IntakeManifoldPressureObdCommand());
+
+
+                csv_result += "\n temperature commands: \n";
+                publishProgress(" temperature commands... \n");
+                testObdcommand(new AirIntakeTemperatureObdCommand());
+                testObdcommand(new AmbientAirTemperatureObdCommand());
+                testObdcommand(new EngineCoolantTemperatureObdCommand());
+
+                csv_result += "\n rest commands: \n";
+                publishProgress(" rest commands... \n");
+                testObdcommand(new SpeedObdCommand());
 
             } else {
                 return Boolean.FALSE;
