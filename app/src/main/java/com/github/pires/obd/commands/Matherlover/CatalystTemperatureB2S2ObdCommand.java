@@ -1,5 +1,6 @@
-package com.github.pires.obd.commands.temperature;
+package com.github.pires.obd.commands.Matherlover;
 
+import com.github.pires.obd.commands.temperature.TemperatureObdCommand;
 import com.github.pires.obd.enums.AvailableCommandNames;
 
 /**

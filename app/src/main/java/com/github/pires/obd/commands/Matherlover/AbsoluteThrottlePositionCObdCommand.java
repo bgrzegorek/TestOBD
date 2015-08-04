@@ -1,4 +1,4 @@
-package com.github.pires.obd.commands.engine;
+package com.github.pires.obd.commands.Matherlover;
 
 import com.github.pires.obd.commands.PercentageObdCommand;
 import com.github.pires.obd.enums.AvailableCommandNames;

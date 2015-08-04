@@ -1,4 +1,4 @@
-package com.github.pires.obd.commands.Marcin;
+package com.github.pires.obd.commands.Matherlover;
 
 import com.github.pires.obd.enums.AvailableCommandNames;
 import com.github.pires.obd.commands.ObdCommand;

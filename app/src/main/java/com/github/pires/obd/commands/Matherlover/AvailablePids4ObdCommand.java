@@ -1,4 +1,4 @@
-package com.github.pires.obd.commands.protocol;
+package com.github.pires.obd.commands.Matherlover;
 
 import com.github.pires.obd.commands.PersistentObdCommand;
 import com.github.pires.obd.enums.AvailableCommandNames;

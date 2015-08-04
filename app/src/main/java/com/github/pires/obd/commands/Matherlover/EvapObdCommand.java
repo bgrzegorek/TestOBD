@@ -22,8 +22,9 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.github.pires.obd.commands.pressure;
+package com.github.pires.obd.commands.Matherlover;
 
+import com.github.pires.obd.commands.pressure.PressureObdCommand;
 import com.github.pires.obd.enums.AvailableCommandNames;
 
 public class EvapObdCommand extends PressureObdCommand {
