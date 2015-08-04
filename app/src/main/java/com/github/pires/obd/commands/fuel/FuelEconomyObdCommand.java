@@ -24,13 +24,13 @@
  */
 package com.github.pires.obd.commands.fuel;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import com.github.pires.obd.commands.ObdCommand;
 import com.github.pires.obd.commands.SpeedObdCommand;
 import com.github.pires.obd.enums.AvailableCommandNames;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  * TODO put description

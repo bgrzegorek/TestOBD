@@ -1,7 +1,7 @@
 package com.github.pires.obd.commands.Marcin;
 
-import com.github.pires.obd.enums.AvailableCommandNames;
 import com.github.pires.obd.commands.ObdCommand;
+import com.github.pires.obd.enums.AvailableCommandNames;
 
 /**
  * Created by Marcin on 01.08.2015.

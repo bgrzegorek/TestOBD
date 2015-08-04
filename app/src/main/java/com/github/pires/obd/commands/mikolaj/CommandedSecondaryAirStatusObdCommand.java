@@ -24,9 +24,9 @@
  */
 package com.github.pires.obd.commands.mikolaj;
 
+import com.github.pires.obd.commands.ObdCommand;
 import com.github.pires.obd.commands.mikolaj.TermFuel.Bank2ShortTermFuelObdCommand;
 import com.github.pires.obd.enums.AvailableCommandNames;
-import com.github.pires.obd.commands.ObdCommand;
 import com.github.pires.obd.enums.CommandedSecondaryAirStatus;
 
 /**

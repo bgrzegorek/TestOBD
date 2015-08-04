@@ -24,7 +24,6 @@
  */
 package com.github.pires.obd.commands.control;
 
-import com.github.pires.obd.commands.ObdCommand;
 import com.github.pires.obd.commands.PercentageObdCommand;
 import com.github.pires.obd.enums.AvailableCommandNames;
 

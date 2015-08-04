@@ -47,11 +47,11 @@
  */
 package com.github.pires.obd.commands.control;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import com.github.pires.obd.commands.ObdCommand;
 import com.github.pires.obd.enums.AvailableCommandNames;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * It is not needed no know how many DTC are stored.

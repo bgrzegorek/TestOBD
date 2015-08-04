@@ -37,9 +37,6 @@ import com.github.pires.obd.commands.Marcin.ExhaustPressureObdCommand;
 import com.github.pires.obd.commands.Marcin.FuelPressureControlSystemObdCommand;
 import com.github.pires.obd.commands.Marcin.InjectionPressureControlSystemObdCommand;
 import com.github.pires.obd.commands.Marcin.IntakeAirTemperatureSensorObdCommand;
-import com.github.pires.obd.commands.Marcin.MaxAirFlowRateObdCommand;
-import com.github.pires.obd.commands.Marcin.MaxValForSensorsObdCommand;
-import com.github.pires.obd.commands.Marcin.MonitorDriveCycleObdCommand;
 import com.github.pires.obd.commands.Marcin.IntakeManifoldAbsolutePressureObdCommand;
 import com.github.pires.obd.commands.Marcin.ManifoldSurfaceTemperatureObdCommand;
 import com.github.pires.obd.commands.Marcin.MassAirFlowSensorObdCommand;
@@ -115,7 +112,6 @@ import com.github.pires.obd.commands.mikolaj.BankSensorShortTerm.Bank2Sensor1Sho
 import com.github.pires.obd.commands.mikolaj.BankSensorShortTerm.Bank2Sensor2ShortBankSensorShortTermFuelObdCommand;
 import com.github.pires.obd.commands.mikolaj.BankSensorShortTerm.Bank2Sensor3ShortTermBankSensorTermFuelObdCommand;
 import com.github.pires.obd.commands.mikolaj.BankSensorShortTerm.Bank2Sensor4ShortBankSensorShortTermFuelObdCommand;
-import com.github.pires.obd.commands.mikolaj.BankSensorShortTerm.BankSensorShortTermObdCommand;
 import com.github.pires.obd.commands.mikolaj.CommandedERGObdCommand;
 import com.github.pires.obd.commands.mikolaj.CommandedEvaporativePurgeObdCommand;
 import com.github.pires.obd.commands.mikolaj.CommandedSecondaryAirStatusObdCommand;
@@ -133,14 +129,12 @@ import com.github.pires.obd.commands.mikolaj.OxygenSensor.Bank2Sensor1OxygenSens
 import com.github.pires.obd.commands.mikolaj.OxygenSensor.Bank2Sensor2OxygenSensorObdCommand;
 import com.github.pires.obd.commands.mikolaj.OxygenSensor.Bank2Sensor3OxygenSensorObdCommand;
 import com.github.pires.obd.commands.mikolaj.OxygenSensor.Bank2Sensor4OxygenSensorObdCommand;
-import com.github.pires.obd.commands.mikolaj.OxygenSensor.OxygenSensorObdCommand;
 import com.github.pires.obd.commands.mikolaj.OxygenSensorsPresent2ObdCommand;
 import com.github.pires.obd.commands.mikolaj.OxygenSensorsPresentObdCommand;
 import com.github.pires.obd.commands.mikolaj.TermFuel.Bank1LongTermFuelObdCommand;
 import com.github.pires.obd.commands.mikolaj.TermFuel.Bank1ShortTermFuelObdCommand;
 import com.github.pires.obd.commands.mikolaj.TermFuel.Bank2LongTermFuelObdCommand;
 import com.github.pires.obd.commands.mikolaj.TermFuel.Bank2ShortTermFuelObdCommand;
-import com.github.pires.obd.commands.mikolaj.TermFuel.TermFuelObdCommand;
 import com.github.pires.obd.commands.mikolaj.WRLambdaEquivalenceRatio.S1WRLambdaEquivalenceRatioObdCommand;
 import com.github.pires.obd.commands.mikolaj.WRLambdaEquivalenceRatio.S2WRLambdaEquivalenceRatioObdCommand;
 import com.github.pires.obd.commands.mikolaj.WRLambdaEquivalenceRatio.S3WRLambdaEquivalenceRatioObdCommand;
@@ -149,7 +143,6 @@ import com.github.pires.obd.commands.mikolaj.WRLambdaEquivalenceRatio.S5WRLambda
 import com.github.pires.obd.commands.mikolaj.WRLambdaEquivalenceRatio.S6WRLambdaEquivalenceRatioObdCommand;
 import com.github.pires.obd.commands.mikolaj.WRLambdaEquivalenceRatio.S7WRLambdaEquivalenceRatioObdCommand;
 import com.github.pires.obd.commands.mikolaj.WRLambdaEquivalenceRatio.S8WRLambdaEquivalenceRatioObdCommand;
-import com.github.pires.obd.commands.mikolaj.WRLambdaEquivalenceRatio.WRLambdaEquivalenceRatioObdCommand;
 import com.github.pires.obd.commands.mikolaj.WRLambdaVoltage.S1WRLambdaVoltageObdCommand;
 import com.github.pires.obd.commands.mikolaj.WRLambdaVoltage.S2WRLambdaVoltageObdCommand;
 import com.github.pires.obd.commands.mikolaj.WRLambdaVoltage.S3WRLambdaVoltageObdCommand;
@@ -158,7 +151,6 @@ import com.github.pires.obd.commands.mikolaj.WRLambdaVoltage.S5WRLambdaVoltageOb
 import com.github.pires.obd.commands.mikolaj.WRLambdaVoltage.S6WRLambdaVoltageObdCommand;
 import com.github.pires.obd.commands.mikolaj.WRLambdaVoltage.S7WRLambdaVoltageObdCommand;
 import com.github.pires.obd.commands.mikolaj.WRLambdaVoltage.S8WRLambdaVoltageObdCommand;
-import com.github.pires.obd.commands.mikolaj.WRLambdaVoltage.WRLambdaVoltageObdCommand;
 import com.github.pires.obd.commands.mikolaj.WarmUpsObdCommand;
 import com.github.pires.obd.commands.pressure.AbsoluteEvapObdCommand;
 import com.github.pires.obd.commands.pressure.BarometricPressureObdCommand;
