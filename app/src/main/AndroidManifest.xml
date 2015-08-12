@@ -24,6 +24,10 @@
             android:name=".TestOBDActivity"
             android:label="@string/title_activity_test_obd" >
         </activity>
+        <activity
+            android:name=".WorkingCommandsActivity"
+            android:label="@string/title_activity_working_commands" >
+        </activity>
     </application>
 
 </manifest>

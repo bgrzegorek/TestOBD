@@ -2,13 +2,10 @@ package com.testobd;
 
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -171,13 +168,8 @@ import com.github.pires.obd.commands.temperature.CatalystTemperatureB1S2ObdComma
 import com.github.pires.obd.commands.temperature.CatalystTemperatureB2S1ObdCommand;
 import com.github.pires.obd.commands.temperature.CatalystTemperatureB2S2ObdCommand;
 import com.github.pires.obd.exceptions.ObdResponseException;
-import com.testobd.BluetoothConnection;
-import com.testobd.R;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 
 public class TestOBDActivity extends ActionBarActivity {
 
@@ -187,6 +179,8 @@ public class TestOBDActivity extends ActionBarActivity {
 
     String csv_result;
     String command_result;
+    String working_commands;
+    StringBuilder stringBuilderResult, stringBuilderWorkingCommands;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -199,6 +193,10 @@ public class TestOBDActivity extends ActionBarActivity {
         name = getIntent().getStringExtra("NAME");
         address = getIntent().getStringExtra("ADDRESS");
         txt_name.setText(name);
+
+
+        stringBuilderWorkingCommands = new StringBuilder("");
+
         new OBDAsyncTask().execute();
     }
 
@@ -269,6 +267,7 @@ public class TestOBDActivity extends ActionBarActivity {
             if(socket != null) {
                 /*******************************************************************************/
                 csv_result += "\n Control commands: \n";
+                stringBuilderResult = new StringBuilder(csv_result);
                 publishProgress(" Control commands... \n");
                 testObdcommand(new CommandControlModuleVoltageObdCommand());
                 testObdcommand(new CommandEquivRatioObdCommand());
@@ -281,7 +280,8 @@ public class TestOBDActivity extends ActionBarActivity {
 
 
                 /*******************************************************************************/
-                csv_result += "\n Engine commands: \n";
+                //csv_result += "\n Engine commands: \n";
+                stringBuilderResult.append("\n Engine commands: \n");
                 publishProgress(" Engine commands... \n");
                 testObdcommand(new AbsoluteLoadObdCommand());
                 testObdcommand(new EngineFuelRate());
@@ -293,7 +293,8 @@ public class TestOBDActivity extends ActionBarActivity {
                 testObdcommand(new ThrottlePositionObdCommand());
 
                 /*******************************************************************************/
-                csv_result += "\n Fuel commands: \n";
+                //csv_result += "\n Fuel commands: \n";
+                stringBuilderResult.append("\n Fuel commands: \n");
                 publishProgress(" Fuel commands... \n");
                 testObdcommand(new FindFuelSystemObdCommand());
                 testObdcommand(new FuelAirCommanded());
@@ -305,6 +306,7 @@ public class TestOBDActivity extends ActionBarActivity {
 
                 /*******************************************************************************/
                 csv_result += "\n Marcin commands: \n";
+                stringBuilderResult.append("\n Marcin commands: \n");
                 publishProgress(" Marcin commands... \n");
                 testObdcommand(new ActualEnginePercentTorqueObdCommand());
                 testObdcommand(new AuxInputOutputObdCommand());
@@ -347,7 +349,8 @@ public class TestOBDActivity extends ActionBarActivity {
                 testObdcommand(new WastegateControlObdCommand());
 
                 /*******************************************************************************/
-                csv_result += "\n MatherLover commands: \n";
+                //csv_result += "\n MatherLover commands: \n";
+                stringBuilderResult.append("\n MatherLover commands: \n");
                 publishProgress(" MatherLover commands... \n");
                 testObdcommand(new AbsoluteEvapObdCommand());
                 testObdcommand(new AbsoluteThrottlePositionBObdCommand());
@@ -387,7 +390,8 @@ public class TestOBDActivity extends ActionBarActivity {
                 testObdcommand(new ShortTermSecondaryOxygenB2And4ObdCommand());
                 testObdcommand(new TimeSinceTroubleCodesClearedObdCommand());
 
-                csv_result += "\n mikolaj commands: \n";
+                //csv_result += "\n mikolaj commands: \n";
+                stringBuilderResult.append("\n mikolaj commands: \n");
                 publishProgress(" mikolaj commands... \n");
                 testObdcommand(new AuxillaryInputStatusObdCommand());
                 testObdcommand(new AvailablePids2ObdCommand());
@@ -442,7 +446,8 @@ public class TestOBDActivity extends ActionBarActivity {
 
 
                 /*******************************************************************************/
-                csv_result += "\n pressure commands: \n";
+                //csv_result += "\n pressure commands: \n";
+                stringBuilderResult.append("\n pressure commands: \n");
                 publishProgress(" pressure commands... \n");
                 testObdcommand(new BarometricPressureObdCommand());
                 testObdcommand(new FuelPressureObdCommand());
@@ -450,16 +455,18 @@ public class TestOBDActivity extends ActionBarActivity {
                 testObdcommand(new IntakeManifoldPressureObdCommand());
 
 
-                csv_result += "\n temperature commands: \n";
+                //csv_result += "\n temperature commands: \n";
+                stringBuilderResult.append("\n temperature commands: \n");
                 publishProgress(" temperature commands... \n");
                 testObdcommand(new AirIntakeTemperatureObdCommand());
                 testObdcommand(new AmbientAirTemperatureObdCommand());
         //        testObdcommand(new EngineCoolantTemperatureObdCommand());
 
-                csv_result += "\n rest commands: \n";
+                //csv_result += "\n rest commands: \n";
+                stringBuilderResult.append("\n rest commands: \n");
                 publishProgress(" rest commands... \n");
                 testObdcommand(new SpeedObdCommand());
-                testObdcommand(new AvailablePidsObdCommand());
+                //testObdcommand(new AvailablePidsObdCommand());
 
             } else {
                 return Boolean.FALSE;
@@ -479,7 +486,7 @@ public class TestOBDActivity extends ActionBarActivity {
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);
             if(result == Boolean.TRUE) {
-                writeToFile(csv_result);
+                displayResult(stringBuilderResult.toString());
             } else {
                 Toast.makeText(TestOBDActivity.this, "bluetooth socket == null", Toast.LENGTH_LONG);
             }
@@ -490,63 +497,35 @@ public class TestOBDActivity extends ActionBarActivity {
             if(socket == null) {
                 Toast.makeText(TestOBDActivity.this, "bluetooth socket == null", Toast.LENGTH_LONG);
             } else {
-                csv_result += command.getName();
-                csv_result += ";";
+                //csv_result += command.getName();
+                //csv_result += ";";
+
+                stringBuilderResult.append(command.getName() + ";");
                 try {
                     command.run(socket.getInputStream(), socket.getOutputStream());
-                    csv_result += command.getResult();
-                    csv_result += ";";
-                    csv_result += command.getFormattedResult();
+                    //csv_result += command.getResult();
+                    //csv_result += ";";
+                    //csv_result += command.getFormattedResult();
+                    stringBuilderResult.append(command.getResult() + ";" + command.getFormattedResult());
+                    stringBuilderWorkingCommands.append(command.getName() + "\n");
                 } catch (ObdResponseException e) {
-                    csv_result += e.getMessage();
+                    //csv_result += e.getMessage();
+                    stringBuilderResult.append(e.getMessage());
                 } catch (Exception e) {
-                    csv_result += e.getMessage();
+                    //csv_result += e.getMessage();
+                    stringBuilderResult.append(e.getMessage());
                 }
-                csv_result += "\n";
+                //csv_result += "\n";
+                stringBuilderResult.append("\n");
             }
         }
     }
 
-    private void writeToFile(String data) {
-        File myFile = null;
-        try {
-            myFile = new File("/sdcard/obd_test.csv");
-            if(myFile.exists()){
-                myFile.delete();
-            }
-            myFile.createNewFile();
-            FileOutputStream fOut = new FileOutputStream(myFile);
-            OutputStreamWriter myOutWriter =
-                    new OutputStreamWriter(fOut);
-            myOutWriter.append(data);
-            myOutWriter.close();
-            fOut.close();
-            Toast.makeText(getBaseContext(),
-                    "Done writing SD '/sdcard/obd_test.csv'",
-                    Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Toast.makeText(getBaseContext(), e.getMessage(),
-                    Toast.LENGTH_SHORT).show();
-        }
+    private void displayResult(String data) {
 
-        if(myFile != null) {
-            // Send file
-            String file_location = myFile.getAbsolutePath();
-            Toast.makeText(TestOBDActivity.this, file_location, Toast.LENGTH_SHORT).show();
-            Intent emailIntent = new Intent(Intent.ACTION_SEND);
-            // set the type to 'email'
-            emailIntent.setType("vnd.android.cursor.dir/email");
-            String to[] = {"ecodriverme@gmail.com"};
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
-            // the attachment
-            emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + file_location));
-            // the mail subject
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Test OBD...");
-            // the mail body
-            emailIntent.putExtra(Intent.EXTRA_TEXT, ".csv file attached");
-            startActivity(Intent.createChooser(emailIntent, "Send email..."));
-
-
-        }
+        Intent intent = new Intent(TestOBDActivity.this, WorkingCommandsActivity.class);
+        intent.putExtra("WORKING_COMMANDS", stringBuilderWorkingCommands.toString());
+        intent.putExtra("CSV_RESULT", stringBuilderResult.toString());
+        startActivity(intent);
     }
 }
